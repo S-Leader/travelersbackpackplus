@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "IHI",
+    "I I",
+    "III"
+  ],
+  "key": {
+    "I": "#c:ingots/iron",
+    "H": "travelersbackpack:hose_nozzle"
+  },
+  "result": {
+    "id": "travelersbackpackplus:air_tank",
+    "count": 1
+  }
+}

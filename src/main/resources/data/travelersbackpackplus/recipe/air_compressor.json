@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "IPI",
+    "ITI",
+    "IFI"
+  ],
+  "key": {
+    "I": "#c:ingots/iron",
+    "P": "minecraft:piston",
+    "T": "travelersbackpack:backpack_tank",
+    "F": "minecraft:furnace"
+  },
+  "result": {
+    "id": "travelersbackpackplus:air_compressor",
+    "count": 1
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "III",
+    " F ",
+    " F "
+  ],
+  "key": {
+    "I": "minecraft:iron_ingot",
+    "F": "minecraft:oak_fence"
+  },
+  "result": {
+    "id": "travelersbackpackplus:copter_blades",
+    "count": 1
+  }
+}

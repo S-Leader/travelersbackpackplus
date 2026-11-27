@@ -1,0 +1,21 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "#c:rubbers",
+      "required": false
+    },
+    {
+      "id": "#c:rubber",
+      "required": false
+    },
+    {
+      "id": "#c:plates/rubber",
+      "required": false
+    },
+    {
+      "id": "#c:ingots/rubber",
+      "required": false
+    }
+  ]
+}

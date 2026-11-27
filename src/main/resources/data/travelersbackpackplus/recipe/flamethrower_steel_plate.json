@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "IIH",
+    "  F"
+  ],
+  "key": {
+    "I": "#c:plates/steel",
+    "H": "travelersbackpack:hose_nozzle",
+    "F": "minecraft:flint_and_steel"
+  },
+  "result": {
+    "id": "travelersbackpackplus:flamethrower",
+    "count": 1
+  },
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:not",
+      "value": {
+        "type": "neoforge:tag_empty",
+        "tag": "c:plates/steel"
+      }
+    }
+  ]
+}

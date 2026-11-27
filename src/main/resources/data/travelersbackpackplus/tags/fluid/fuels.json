@@ -1,0 +1,38 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:lava",
+    {
+      "id": "#c:fuels",
+      "required": false
+    },
+    {
+      "id": "c:diesel",
+      "required": false
+    },
+    {
+      "id": "c:biodiesel",
+      "required": false
+    },
+    {
+      "id": "c:ethanol",
+      "required": false
+    },
+    {
+      "id": "c:bioethanol",
+      "required": false
+    },
+    {
+      "id": "c:fuel",
+      "required": false
+    },
+    {
+      "id": "c:oil",
+      "required": false
+    },
+    {
+      "id": "c:creosote",
+      "required": false
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+.gradle/
+.idea/
+build/
+run/
+release/
+reference/
+libs/*.jar
+libs/optional/*.jar

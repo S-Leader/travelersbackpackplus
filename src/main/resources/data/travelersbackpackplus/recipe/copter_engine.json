@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "IGI",
+    "PCP",
+    "FOF"
+  ],
+  "key": {
+    "I": "minecraft:iron_ingot",
+    "G": "minecraft:gold_ingot",
+    "P": "minecraft:piston",
+    "C": "minecraft:cauldron",
+    "F": "minecraft:furnace",
+    "O": "minecraft:obsidian"
+  },
+  "result": {
+    "id": "travelersbackpackplus:copter_engine",
+    "count": 1
+  }
+}

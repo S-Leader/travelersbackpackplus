@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "top": "travelersbackpackplus:block/air_compressor_top",
+    "front": "travelersbackpackplus:block/air_compressor_front",
+    "side": "travelersbackpackplus:block/air_compressor_side"
+  }
+}

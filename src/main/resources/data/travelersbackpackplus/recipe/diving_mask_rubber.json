@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "LLL",
+    "LGL",
+    " H "
+  ],
+  "key": {
+    "L": "#travelersbackpackplus:rubber",
+    "G": "#c:glass_panes",
+    "H": "travelersbackpack:hose_nozzle"
+  },
+  "result": {
+    "id": "travelersbackpackplus:diving_mask",
+    "count": 1
+  },
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:not",
+      "value": {
+        "type": "neoforge:tag_empty",
+        "tag": "travelersbackpackplus:rubber"
+      }
+    }
+  ]
+}

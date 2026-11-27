@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "WBW",
+    "TEI",
+    "CDI"
+  ],
+  "key": {
+    "W": "#minecraft:planks",
+    "B": "travelersbackpackplus:copter_blades",
+    "T": "travelersbackpack:backpack_tank",
+    "E": "travelersbackpackplus:copter_engine",
+    "C": "minecraft:green_dye",
+    "D": "minecraft:diamond",
+    "I": "minecraft:iron_ingot"
+  },
+  "result": {
+    "id": "travelersbackpackplus:copter_pack",
+    "count": 1
+  }
+}

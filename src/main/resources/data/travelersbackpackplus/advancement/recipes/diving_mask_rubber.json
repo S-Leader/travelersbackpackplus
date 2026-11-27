@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_iron": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:iron_ingot"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_iron"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "travelersbackpackplus:diving_mask_rubber"
+    ]
+  },
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:not",
+      "value": {
+        "type": "neoforge:tag_empty",
+        "tag": "travelersbackpackplus:rubber"
+      }
+    }
+  ]
+}

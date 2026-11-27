@@ -1,0 +1,26 @@
+{
+  "helicopter": {
+    "subtitle": "subtitle.travelersbackpackplus.helicopter",
+    "sounds": [
+      {
+        "name": "travelersbackpackplus:helicopter"
+      }
+    ]
+  },
+  "jetpack": {
+    "subtitle": "subtitle.travelersbackpackplus.jetpack",
+    "sounds": [
+      {
+        "name": "travelersbackpackplus:jetpack"
+      }
+    ]
+  },
+  "flamethrower": {
+    "subtitle": "subtitle.travelersbackpackplus.flamethrower",
+    "sounds": [
+      {
+        "name": "travelersbackpackplus:flamethrower"
+      }
+    ]
+  }
+}

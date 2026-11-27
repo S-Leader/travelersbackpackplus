@@ -1,0 +1,27 @@
+modLoader="javafml"
+loaderVersion="[1,)"
+license="LGPL-3.0-only"
+[[mods]]
+modId="travelersbackpackplus"
+version="${version}"
+displayName="Traveler's Backpacks++"
+authors="Darkona, AdventureBackpack2 contributors, keletu"
+description="Copter Pack, Steam Jetpack, Flamethrower Pack and Scuba Gear powered by Traveler's Backpack."
+[[mixins]]
+config="travelersbackpackplus.mixins.json"
+[[dependencies.travelersbackpackplus]]
+modId="minecraft"
+type="required"
+versionRange="[26.1.2,26.2)"
+side="BOTH"
+[[dependencies.travelersbackpackplus]]
+modId="neoforge"
+type="required"
+versionRange="[26.1.2.126,)"
+side="BOTH"
+[[dependencies.travelersbackpackplus]]
+modId="travelersbackpack"
+type="required"
+versionRange="[11.2.10,11.3)"
+ordering="AFTER"
+side="BOTH"

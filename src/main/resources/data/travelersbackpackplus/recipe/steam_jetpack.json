@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "BWT",
+    "GIG",
+    "xWC"
+  ],
+  "key": {
+    "W": "#minecraft:planks",
+    "G": "#c:ingots/gold",
+    "I": "#c:ingots/iron",
+    "B": "minecraft:cauldron",
+    "x": "minecraft:furnace",
+    "C": "minecraft:green_dye",
+    "T": "travelersbackpack:backpack_tank"
+  },
+  "result": {
+    "id": "travelersbackpackplus:steam_jetpack",
+    "count": 1
+  }
+}

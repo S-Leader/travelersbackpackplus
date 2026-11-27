@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "ILI",
+    "LGL",
+    "III"
+  ],
+  "key": {
+    "I": "#c:ingots/iron",
+    "L": "#travelersbackpackplus:rubber",
+    "G": "#c:glass_panes"
+  },
+  "result": {
+    "id": "travelersbackpackplus:pyro_mask",
+    "count": 1
+  },
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:not",
+      "value": {
+        "type": "neoforge:tag_empty",
+        "tag": "travelersbackpackplus:rubber"
+      }
+    }
+  ]
+}

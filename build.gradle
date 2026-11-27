@@ -1,0 +1,40 @@
+plugins {
+    id 'java-library'
+    id 'net.neoforged.moddev' version '2.0.148'
+}
+group = 'keletu.travelersbackpackplus'
+version = mod_version
+base { archivesName = 'travelers-backpack-plus' }
+java {
+    toolchain.languageVersion = JavaLanguageVersion.of(25)
+    withSourcesJar()
+}
+neoForge {
+    version = neo_version
+    runs {
+        data {
+            clientData()
+            programArguments.addAll '--mod', 'travelersbackpackplus', '--all', '--output', file('build/datagen').absolutePath, '--existing', file('src/main/resources').absolutePath
+        }
+        dataServer {
+            serverData()
+            programArguments.addAll '--mod', 'travelersbackpackplus', '--all', '--output', file('build/server-datagen').absolutePath, '--existing', file('src/main/resources').absolutePath
+        }
+    }
+    mods { travelersbackpackplus { sourceSet sourceSets.main } }
+}
+dependencies {
+    implementation fileTree(dir: 'libs', include: '*.jar')
+    compileOnly fileTree(dir: 'libs/optional', include: '*.jar')
+    if (!providers.gradleProperty('withoutCurios').isPresent()) runtimeOnly fileTree(dir: 'libs/optional', include: '*.jar')
+}
+tasks.withType(JavaCompile).configureEach { options.encoding = 'UTF-8'; options.compilerArgs.addAll(['-Xmaxerrs', '150']) }
+tasks.withType(net.neoforged.nfrtgradle.NeoFormRuntimeTask).configureEach {
+    javaExecutable = javaToolchains.launcherFor { languageVersion = JavaLanguageVersion.of(25) }.map { it.executablePath.asFile.absolutePath }
+}
+tasks.withType(ProcessResources).configureEach {
+    inputs.property 'version', project.version
+    filesMatching('META-INF/neoforge.mods.toml') { expand(version: project.version) }
+}
+tasks.withType(AbstractArchiveTask).configureEach { preserveFileTimestamps = false; reproducibleFileOrder = true }
+jar { from('LICENSE'); from('COPYING-GPL-3.0'); from('NOTICE') }

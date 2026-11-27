@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "ILI",
+    "LGL",
+    "III"
+  ],
+  "key": {
+    "I": "#c:ingots/iron",
+    "L": "minecraft:leather",
+    "G": "#c:glass_panes"
+  },
+  "result": {
+    "id": "travelersbackpackplus:pyro_mask",
+    "count": 1
+  }
+}

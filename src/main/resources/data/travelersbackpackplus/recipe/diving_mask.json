@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "LLL",
+    "LGL",
+    " H "
+  ],
+  "key": {
+    "L": "minecraft:leather",
+    "G": "#c:glass_panes",
+    "H": "travelersbackpack:hose_nozzle"
+  },
+  "result": {
+    "id": "travelersbackpackplus:diving_mask",
+    "count": 1
+  }
+}

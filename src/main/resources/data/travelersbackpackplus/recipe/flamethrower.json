@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "IIH",
+    "  F"
+  ],
+  "key": {
+    "I": "#c:ingots/iron",
+    "H": "travelersbackpack:hose_nozzle",
+    "F": "minecraft:flint_and_steel"
+  },
+  "result": {
+    "id": "travelersbackpackplus:flamethrower",
+    "count": 1
+  }
+}

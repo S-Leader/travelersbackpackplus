@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    " M ",
+    "ASA",
+    " L "
+  ],
+  "key": {
+    "M": "travelersbackpackplus:diving_mask",
+    "A": "travelersbackpackplus:air_tank",
+    "S": "minecraft:string",
+    "L": "minecraft:leather"
+  },
+  "result": {
+    "id": "travelersbackpackplus:scuba_gear",
+    "count": 1
+  }
+}
