@@ -15,6 +15,7 @@ import net.minecraft.client.renderer.entity.state.HumanoidRenderState;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.ItemStack;
+import net.neoforged.neoforge.fluids.FluidStack;
 
 import java.util.EnumMap;
 import java.util.Locale;
@@ -44,6 +45,7 @@ public final class GearRender {
         poses.pushPose();
         parent.body.translateAndRotate(poses);
         collector.submitModel(BODIES.get(item.type()), pose, poses, texture, light, OverlayTexture.NO_OVERLAY, renderState.outlineColor, null);
+        GearTankRender.submit(item.type(), BODIES.get(item.type()), GearTankRender.fluid(stack), poses, collector, light, OverlayTexture.NO_OVERLAY);
         poses.popPose();
         poses.pushPose();
         parent.head.translateAndRotate(poses);
@@ -52,9 +54,10 @@ public final class GearRender {
         return true;
     }
 
-    public static void placed(GearType type, PoseStack poses, SubmitNodeCollector collector, int light, int overlay, int outline) {
+    public static void placed(GearType type, FluidStack fluid, PoseStack poses, SubmitNodeCollector collector, int light, int overlay, int outline) {
         ensureModels();
         collector.submitModel(BODIES.get(type), new GearPose(0, true), poses, texture(type), light, overlay, outline, null);
+        GearTankRender.submit(type, BODIES.get(type), fluid, poses, collector, light, overlay);
     }
 
     private static Identifier texture(GearType type) {

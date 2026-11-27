@@ -24,6 +24,7 @@ import java.util.List;
 
 public final class GearScreen extends AbstractContainerScreen<GearMenu> {
     private static final Identifier WIDGETS = TravelersBackpackPlus.id("textures/gui/gui_backpack_widgets.png");
+    private static final Identifier BUCKET = Identifier.withDefaultNamespace("textures/item/bucket.png");
     private static final int EQUIP_X = 157;
     private static final int EQUIP_Y = 71;
     private static final int EQUIP_SIZE = 12;
@@ -43,6 +44,11 @@ public final class GearScreen extends AbstractContainerScreen<GearMenu> {
             int size = WidgetSkins.textureSize(texture);
             graphics.blit(RenderPipelines.GUI_TEXTURED, WidgetSkins.textureAt(texture), leftPos + background[i], topPos + background[i + 1],
                     background[i + 2], background[i + 3], background[i + 4], background[i + 5], size, size, background[i + 7]);
+        }
+        var fluidInput = menu.getSlot(0);
+        if (!fluidInput.hasItem()) {
+            graphics.blit(RenderPipelines.GUI_TEXTURED, BUCKET, leftPos + fluidInput.x, topPos + fluidInput.y,
+                    0, 0, 16, 16, 16, 16, 0x66FFFFFF);
         }
         if (menu.showsEquipButton()) {
             graphics.blit(RenderPipelines.GUI_TEXTURED, AbstractBackpackScreen.ICONS, leftPos + EQUIP_X + 1, topPos + EQUIP_Y + 1,

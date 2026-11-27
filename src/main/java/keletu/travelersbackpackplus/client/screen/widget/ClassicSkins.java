@@ -115,6 +115,7 @@ public final class ClassicSkins {
             int s = layout.slotFirst(widget);
             int u = layout.param(widget) == 0 ? BUCKETS_LEFT_U : BUCKETS_RIGHT_U;
             c.use(texture, BackgroundComposer.WHITE).add(layout.slotX(s) - 1, layout.slotY(s) - 1, u, BUCKETS_V, SLOT, BUCKETS_H);
+            c.add(layout.slotX(s) - 1, layout.slotY(s) - 1, PLAYER_U, PLAYER_V, SLOT, SLOT);
         }
 
         @Override

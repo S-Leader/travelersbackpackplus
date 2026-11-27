@@ -64,7 +64,7 @@ public final class GearMenu extends BackpackItemMenu {
             case FLAMETHROWER -> GearArrangement.flamethrower();
             case SCUBA -> GearArrangement.scuba();
         };
-        this.tanks = wrapper.getUpgrade(TanksUpgrade.class).orElseThrow();
+        this.tanks = wrapper.getUpgrade(TanksUpgrade.class).orElse(null);
         if (!inventory.player.level().isClientSide()) {
             var storage = wrapper.getStorage();
             for (int slot = 0; slot < storage.size(); slot++) {
@@ -196,6 +196,12 @@ public final class GearMenu extends BackpackItemMenu {
         data.set(4, state.air());
         data.set(11, state.burnTotal());
         for (int i = 0; i < 2; i++) {
+            if (i >= type.tankCount()) {
+                data.set(5 + i * 3, 0);
+                data.set(6 + i * 3, 0);
+                data.set(7 + i * 3, 0);
+                continue;
+            }
             var tank = i == 0 ? tanks.getLeftTank() : tanks.getRightTank();
             FluidStack fluid = StacksHandlerUtils.getFluid(tank);
             data.set(5 + i * 3, BuiltInRegistries.FLUID.getId(fluid.getFluid()));

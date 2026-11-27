@@ -1,7 +1,6 @@
 package keletu.travelersbackpackplus.gear;
 
 import com.tiviacz.travelersbackpack.attachment.AttachmentUtils;
-import com.tiviacz.travelersbackpack.init.ModDataComponents;
 import com.tiviacz.travelersbackpack.item.TravelersBackpackItem;
 import keletu.travelersbackpackplus.GearRegistry;
 import net.minecraft.server.level.ServerLevel;
@@ -19,7 +18,7 @@ public final class GearItem extends TravelersBackpackItem {
     private final GearType type;
 
     public GearItem(Properties properties, Block block, GearType type) {
-        super(properties.component(GearRegistry.STATE.get(), CustomData.EMPTY).delayedComponent(ModDataComponents.UPGRADES.get(), GearCrafting::initialTanks), block);
+        super(properties.component(GearRegistry.STATE.get(), CustomData.EMPTY), block);
         this.type = type;
     }
 
@@ -40,6 +39,7 @@ public final class GearItem extends TravelersBackpackItem {
     @Override
     public void inventoryTick(ItemStack stack, ServerLevel level, Entity entity, EquipmentSlot slot) {
         super.inventoryTick(stack, level, entity, slot);
+        GearTanks.migrate(stack);
         if (!(entity instanceof Player player) || AttachmentUtils.getWearingBackpack(player) == stack) return;
         GearState state = new GearState(stack);
         if (state.enabled() || state.active()) {

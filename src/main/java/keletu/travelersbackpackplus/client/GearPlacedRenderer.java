@@ -27,6 +27,7 @@ public final class GearPlacedRenderer implements BlockEntityRenderer<BackpackBlo
     public void extractRenderState(BackpackBlockEntity entity, GearPlacedState state, float partialTick, Vec3 camera, ModelFeatureRenderer.CrumblingOverlay overlay) {
         BlockEntityRenderer.super.extractRenderState(entity, state, partialTick, camera, overlay);
         state.type = entity.getWrapper().getBackpackStack().getItem() instanceof GearItem item ? item.type() : null;
+        state.fluid = GearTankRender.fluid(entity.getWrapper().getBackpackStack());
         state.rotation = entity.getBlockState().getValue(TravelersBackpackBlock.FACING).toYRot();
     }
 
@@ -38,7 +39,7 @@ public final class GearPlacedRenderer implements BlockEntityRenderer<BackpackBlo
         poses.mulPose(Axis.ZP.rotationDegrees(180));
         poses.mulPose(Axis.YP.rotationDegrees(state.rotation));
         poses.translate(0, 0, -0.3);
-        GearRender.placed(state.type, poses, collector, state.lightCoords, OverlayTexture.NO_OVERLAY, 0);
+        GearRender.placed(state.type, state.fluid, poses, collector, state.lightCoords, OverlayTexture.NO_OVERLAY, 0);
         poses.popPose();
     }
 

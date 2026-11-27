@@ -17,7 +17,15 @@ public enum GearType {
         return switch (this) {
             case COPTER, JETPACK -> 6000;
             case FLAMETHROWER -> 4000;
-            case SCUBA -> 3000;
+            case SCUBA -> 0;
+        };
+    }
+
+    public int tankCount() {
+        return switch (this) {
+            case FLAMETHROWER -> 2;
+            case COPTER, JETPACK -> 1;
+            case SCUBA -> 0;
         };
     }
 }

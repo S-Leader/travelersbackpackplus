@@ -1,11 +1,10 @@
 package keletu.travelersbackpackplus;
 
 import com.tiviacz.travelersbackpack.init.ModBlockEntityTypes;
-import com.tiviacz.travelersbackpack.inventory.BackpackWrapper;
-import com.tiviacz.travelersbackpack.inventory.transfer.ItemFluidTankWrapper;
-import com.tiviacz.travelersbackpack.inventory.upgrades.tanks.TanksUpgrade;
 import keletu.travelersbackpackplus.compat.CurioCompat;
 import keletu.travelersbackpackplus.gear.GearEvents;
+import keletu.travelersbackpackplus.gear.GearFluidHandler;
+import keletu.travelersbackpackplus.gear.GearItem;
 import keletu.travelersbackpackplus.network.GearNetwork;
 import net.minecraft.resources.Identifier;
 import net.neoforged.bus.api.IEventBus;
@@ -45,7 +44,10 @@ public final class TravelersBackpackPlus {
         event.registerBlockEntity(Capabilities.Item.BLOCK, GearRegistry.COMPRESSOR_ENTITY.get(), (entity, side) -> VanillaContainerWrapper.of(entity));
         if (ModList.get().isLoaded("curios")) CurioCompat.register(event);
         GearRegistry.PACKS.forEach(pack -> {
-            event.registerItem(Capabilities.Fluid.ITEM, (stack, access) -> BackpackWrapper.fromStack(stack).getUpgrade(TanksUpgrade.class).map(tanks -> new ItemFluidTankWrapper(access, tanks)).orElse(null), pack.get());
+            event.registerItem(Capabilities.Fluid.ITEM, (stack, access) -> {
+                GearItem item = (GearItem) stack.getItem();
+                return item.type().tankCount() == 0 ? null : new GearFluidHandler(access, item);
+            }, pack.get());
         });
     }
 }

@@ -6,10 +6,12 @@
   "mixins": [
     "FlightConnectionAccess",
     "GearBlockMenuMixin",
+    "GearHoseMixin",
     "GearItemMenuMixin",
     "GearTankCapacityMixin",
     "GearTanksUpgradeMixin",
-    "GearToolsMixin"
+    "GearToolsMixin",
+    "GearUpgradeManagerMixin"
   ],
   "client": [
     "BackpackLayerMixin",
