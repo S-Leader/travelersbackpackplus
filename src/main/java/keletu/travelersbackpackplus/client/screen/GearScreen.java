@@ -7,6 +7,7 @@ import keletu.travelersbackpackplus.client.GearClient;
 import keletu.travelersbackpackplus.client.screen.widget.BackgroundComposer;
 import keletu.travelersbackpackplus.client.screen.widget.ClassicSkins;
 import keletu.travelersbackpackplus.client.screen.widget.WidgetSkins;
+import keletu.travelersbackpackplus.gear.CopterFuel;
 import keletu.travelersbackpackplus.gear.GearType;
 import keletu.travelersbackpackplus.menu.GearMenu;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
@@ -18,6 +19,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.entity.player.Inventory;
 import net.neoforged.neoforge.fluids.FluidStack;
+import net.neoforged.neoforge.transfer.fluid.FluidResource;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,17 +44,14 @@ public final class GearScreen extends AbstractContainerScreen<GearMenu> {
         for (int i = 0; i < background.length; i += BackgroundComposer.STRIDE) {
             int texture = background[i + BackgroundComposer.TEX];
             int size = WidgetSkins.textureSize(texture);
-            graphics.blit(RenderPipelines.GUI_TEXTURED, WidgetSkins.textureAt(texture), leftPos + background[i], topPos + background[i + 1],
-                    background[i + 2], background[i + 3], background[i + 4], background[i + 5], size, size, background[i + 7]);
+            graphics.blit(RenderPipelines.GUI_TEXTURED, WidgetSkins.textureAt(texture), leftPos + background[i], topPos + background[i + 1], background[i + 2], background[i + 3], background[i + 4], background[i + 5], size, size, background[i + 7]);
         }
         var fluidInput = menu.getSlot(0);
         if (!fluidInput.hasItem()) {
-            graphics.blit(RenderPipelines.GUI_TEXTURED, BUCKET, leftPos + fluidInput.x, topPos + fluidInput.y,
-                    0, 0, 16, 16, 16, 16, 0x66FFFFFF);
+            graphics.blit(RenderPipelines.GUI_TEXTURED, BUCKET, leftPos + fluidInput.x, topPos + fluidInput.y, 0, 0, 16, 16, 16, 16, 0x66FFFFFF);
         }
         if (menu.showsEquipButton()) {
-            graphics.blit(RenderPipelines.GUI_TEXTURED, AbstractBackpackScreen.ICONS, leftPos + EQUIP_X + 1, topPos + EQUIP_Y + 1,
-                    63, menu.equipped() ? 67 : 56, 10, 10, 256, 256);
+            graphics.blit(RenderPipelines.GUI_TEXTURED, AbstractBackpackScreen.ICONS, leftPos + EQUIP_X + 1, topPos + EQUIP_Y + 1, 63, menu.equipped() ? 67 : 56, 10, 10, 256, 256);
             if (inside(mouseX, mouseY, EQUIP_X, EQUIP_Y, EQUIP_SIZE, EQUIP_SIZE)) {
                 graphics.blit(RenderPipelines.GUI_TEXTURED, AbstractBackpackScreen.ICONS, leftPos + EQUIP_X, topPos + EQUIP_Y, 78, 82, EQUIP_SIZE, EQUIP_SIZE, 256, 256);
             }
@@ -74,22 +73,19 @@ public final class GearScreen extends AbstractContainerScreen<GearMenu> {
         switch (menu.type) {
             case COPTER -> {
                 tank(graphics, 27, menu.fluid(0), menu.fluid(0).getAmount(), menu.capacity(0), null);
-                labels(graphics, fluidName(menu.fluid(0)), Integer.toString(menu.fluid(0).getAmount()), Integer.toString(menu.capacity(0)), "",
-                        "Consumption: " + (menu.fluid(0).isEmpty() ? "0" : "1.0"));
+                labels(graphics, fluidName(menu.fluid(0)), Integer.toString(menu.fluid(0).getAmount()), Integer.toString(menu.capacity(0)), "", "Consumption: " + (menu.fluid(0).isEmpty() ? "0" : Float.toString((float) CopterFuel.multiplier(FluidResource.of(menu.fluid(0))))));
             }
             case JETPACK -> {
                 tank(graphics, 27, menu.fluid(0), menu.fluid(0).getAmount(), menu.capacity(0), null);
                 tank(graphics, 151, FluidStack.EMPTY, menu.steam(), 12000, "steam");
                 bar(graphics, 136, 7, 8, 64, menu.temperature() / 200F, 0xFFE0541E);
                 bar(graphics, 72, 57, 6, 16, menu.burn() / (float) menu.burnTotal(), 0xFFFFA000);
-                labels(graphics, fluidName(menu.fluid(0)) + "-" + menu.fluid(0).getAmount(),
-                        (menu.steam() > 0 ? "Steam" : "None") + "-" + menu.steam(), menu.temperature() + " C");
+                labels(graphics, fluidName(menu.fluid(0)) + "-" + menu.fluid(0).getAmount(), (menu.steam() > 0 ? "Steam" : "None") + "-" + menu.steam(), menu.temperature() + " C");
             }
             case FLAMETHROWER -> {
                 tank(graphics, 27, menu.fluid(0), menu.fluid(0).getAmount(), menu.capacity(0), null);
                 tank(graphics, 151, menu.fluid(1), menu.fluid(1).getAmount(), menu.capacity(1), null);
-                labels(graphics, text("flamethrower.fuel"), (menu.fluid(0).getAmount() + menu.fluid(1).getAmount()) + "/" + (menu.capacity(0) + menu.capacity(1)), "",
-                        text("flamethrower." + (menu.enabled() ? "lit" : "out")));
+                labels(graphics, text("flamethrower.fuel"), (menu.fluid(0).getAmount() + menu.fluid(1).getAmount()) + "/" + (menu.capacity(0) + menu.capacity(1)), "", text("flamethrower." + (menu.enabled() ? "lit" : "out")));
             }
             case SCUBA -> {
                 tank(graphics, 27, FluidStack.EMPTY, Math.min(menu.air(), 3000), 3000, "air");

@@ -42,6 +42,7 @@ public final class GearEvents {
                     player.sendOverlayMessage(Component.translatable("message.travelersbackpackplus.no_fuel"));
                     return;
                 }
+                state.hover(false);
             }
             state.enabled(!state.enabled());
             state.active(false);
@@ -83,10 +84,9 @@ public final class GearEvents {
             case COPTER -> {
                 if (player.isInWater()) state.enabled(false);
                 if (state.enabled()) {
-                    int multiplier = 1 + (state.hover() ? 1 : 0) + (jump ? 1 : 0);
-                    boolean powered = GearResources.available(wrapper, GearResources.FUEL) >= GearConfig.COPTER_COST.get() * multiplier;
-                    if (powered && tick % 3 == 0)
-                        powered = GearResources.consume(wrapper, GearConfig.COPTER_COST.get() * multiplier, GearResources.FUEL);
+                    boolean powered = GearResources.available(wrapper, GearResources.FUEL) > 0;
+                    if (powered && Math.floorMod(tick + player.getId(), CopterFuel.INTERVAL) == 0)
+                        powered = CopterFuel.consume(wrapper, state.hover(), descend, jump);
                     if (!powered && player.onGround()) state.enabled(false);
                     if (!powered) state.hover(false);
                     state.active(powered);

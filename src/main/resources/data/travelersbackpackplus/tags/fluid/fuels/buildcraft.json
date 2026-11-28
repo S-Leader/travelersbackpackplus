@@ -1,0 +1,113 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "#c:fuel_dense",
+      "required": false
+    },
+    {
+      "id": "#c:fuel_gaseous",
+      "required": false
+    },
+    {
+      "id": "#c:fuel_light",
+      "required": false
+    },
+    {
+      "id": "#c:fuel_mixed_heavy",
+      "required": false
+    },
+    {
+      "id": "#c:fuel_mixed_light",
+      "required": false
+    },
+    {
+      "id": "#c:oil",
+      "required": false
+    },
+    {
+      "id": "#c:oil_dense",
+      "required": false
+    },
+    {
+      "id": "#c:oil_distilled",
+      "required": false
+    },
+    {
+      "id": "#c:oil_heavy",
+      "required": false
+    },
+    {
+      "id": "#c:hot_fuel_dense",
+      "required": false
+    },
+    {
+      "id": "#c:hot_fuel_gaseous",
+      "required": false
+    },
+    {
+      "id": "#c:hot_fuel_light",
+      "required": false
+    },
+    {
+      "id": "#c:hot_fuel_mixed_heavy",
+      "required": false
+    },
+    {
+      "id": "#c:hot_fuel_mixed_light",
+      "required": false
+    },
+    {
+      "id": "#c:hot_oil",
+      "required": false
+    },
+    {
+      "id": "#c:hot_oil_dense",
+      "required": false
+    },
+    {
+      "id": "#c:hot_oil_distilled",
+      "required": false
+    },
+    {
+      "id": "#c:hot_oil_heavy",
+      "required": false
+    },
+    {
+      "id": "#c:searing_fuel_dense",
+      "required": false
+    },
+    {
+      "id": "#c:searing_fuel_gaseous",
+      "required": false
+    },
+    {
+      "id": "#c:searing_fuel_light",
+      "required": false
+    },
+    {
+      "id": "#c:searing_fuel_mixed_heavy",
+      "required": false
+    },
+    {
+      "id": "#c:searing_fuel_mixed_light",
+      "required": false
+    },
+    {
+      "id": "#c:searing_oil",
+      "required": false
+    },
+    {
+      "id": "#c:searing_oil_dense",
+      "required": false
+    },
+    {
+      "id": "#c:searing_oil_distilled",
+      "required": false
+    },
+    {
+      "id": "#c:searing_oil_heavy",
+      "required": false
+    }
+  ]
+}
